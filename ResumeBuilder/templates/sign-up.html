@@ -1,0 +1,34 @@
+{% extends 'navbar.html' %}
+{% block title %} Sign-up {% endblock title %}
+
+{% block body %}
+
+<div class="container-sm">
+    <div class="card shadow p-3 my-5">
+        <h2 class="text-center">Sign up here</h2>
+        <form class="form" action="/signup" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control" name="fname">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" name="lname">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" name="email">
+                <div id="emailHelp" class="form-text">We'll Send Verification Email</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" name="passwd">
+            </div>
+            <p>Already have an account? <a href="/signin">Sign in</a></p>
+            <button type="submit" class="btn btn-primary">Sign up</button>
+        </form>
+    </div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,116 @@
+{% extends 'navbar.html' %}
+{% block title %} Home {% endblock title %}
+
+{% block body %}
+
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="static/img/1.jpg" class="d-block w-100" alt="Image 1">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Welcome to ResumeBuilder</h5>
+            <p>Best Resume Building Website.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="static/img/2.jpg" class="d-block w-100" alt="Image 2">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Creating an effective Resume</h5>
+            <p>Custom web design solutions websites with personality.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="static/img/3.jpg" class="d-block w-100" alt="Image 3">
+          <div class="carousel-caption d-none d-md-block text-dark">
+            <h5>Build Your Success</h5>
+            <p>Your Resume is your online Job card. We’ll make it easy to read—and stand out.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+    <div id="services" class="my-5 shadow">
+      <div class="text-center">
+        <h2>Services</h2>
+        <p>To make things easy for you, following are the key features of user- friendly software.</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="py-5 px-4 card w-75 my-5 ">
+          <button class="btn btn-primary fa fa-file"></button> <b>Create resume with ease</b>
+          <p>Build your resume online in minutes without leaving your web browser</p>
+
+          <button class="btn btn-primary fa fa-check"></button> <b>Professionally approved templates</b>
+          <p>Our well designed resume templates are approved by professionals. Your resume is ready in 5 minutes.</p>
+
+          <button class="btn btn-primary fa fa-lock"></button> <b>We care about your data</b>
+          <p>Anything you share with us is well protected with our 256-bit SSL encryption.</p>
+
+          <button class="btn btn-primary fa fa-download"></button> <b>Download as Template</b>
+          <p>Download your resume in PDF and other common formats with just a click.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="contact" class="my-5 shadow pt-4">
+      <h2 class="text-center">Contact Us</h2>
+      <div class="d-flex justify-content-center">
+        <form action="#" method="POST" class="w-75">
+          <div class="mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" name="name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input type="email" name="email" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Subject</label>
+            <input type="text" name="subject" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea type="text" name="message" class="form-control"></textarea>
+          </div>
+          <button class="btn btn-primary btn-lg my-4">Send</button>
+        </form>
+      </div>
+    </div>
+    <hr>
+    <div class="footer shadow bg-info bg-gradient py-5">
+      <div class="px-4 pt-4 fw-bolder">
+        <h2 class="text-primary"><u>ResumeBuilder</u></h2>
+        <p class="text-light">Simple, Easy, Attractive.</p>
+      </div>
+      <div class="text-end px-4 text-light">
+        <a href="#about" class="text-decoration-none">About</a>
+        <a href="#features" class="text-decoration-none">Features</a>
+        <a href="#contact" class="text-decoration-none">Contact</a>
+      </div>
+      <div class="text-center social-icons py-4">
+        <h4>Designed By <a href="/">Team ResumeBuilder</a></h4>
+        <a href="https://wa.me/919067404012" target="__blank"><button class="btn btn-success"><i class="fa fa-whatsapp"></i></button></a>
+        <a href="https://facebook.com" target="__blank"><button class="btn btn-primary"><i class="fa fa-facebook"></i></button></a>
+        <a href="https://instagram.com" target="__blank"><button class="btn btn-danger"><i class="fa fa-instagram"></i></button></a>
+        <a href="https://linkedin.com" target="__blank"><button class="btn btn-primary"><i class="fa fa-linkedin"></i></button></a>
+      </div>
+      <div class="text-end px-4 my-5 fixed-bottom">
+        <a href="/"><button class="btn btn-success"><i class="fa fa-arrow-up"></i></button></a>
+      </div>
+      <p class="text-left">©Resume Builder All Rights Reserved</p>
+    </div>
+{% endblock body %}

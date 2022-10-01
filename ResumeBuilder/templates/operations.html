@@ -1,0 +1,130 @@
+
+<!--        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--            <li><a class="dropdown-item btn text-primary" data-bs-toggle="modal" data-bs-target="#profileModal">Profile</a></li>-->
+<!--            <li><a class="dropdown-item btn text-success" data-bs-toggle="modal" data-bs-target="#updateModal">Update Profile</a></li>-->
+<!--            <li><a class="dropdown-item btn" href="#">Documentation</a></li>-->
+<!--            <li><a class="dropdown-item btn text-danger" href="/logout">Sign Out</button></a></li>-->
+<!--        </ul>-->
+<div class="modal" id="profileModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Profile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <table class="table responsive-sm text-left">
+                <tr>
+                    <th>ID</th>
+                    <td>: {{ request.session.user.uid }}</td>
+                </tr>
+                <tr>
+                    <th>Full Name</th>
+                    <td>: {{ request.session.user.fname }}&emsp14;{{ request.session.user.lname }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>: {{ request.session.user.email }}</td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td>: {{ request.session.user.passwd }}</td>
+                </tr>
+                <tr>
+                    <th>EVS</th>
+                    <td>: {{ request.session.user.evs }}</td>
+                </tr>
+                <tr>
+                    <th>Token</th>
+                    <td>: {{ request.session.user.token }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <a data-bs-toggle="modal" data-bs-target="#updateModal"><button class="btn btn-success">Update Profile</button></a>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="updateModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Update Profile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{% url 'update_profile' request.session.user.uid %}" method="POST">
+            {% csrf_token %}
+            <div class="modal-body">
+                <table class="table responsive-sm">
+                    <tr>
+                        <div class="input-group mb3">
+                            <span class="input-group-text" id="basic-addon1">First Name</span>
+                            <input type="text" class="form-control" name="fname" placeholder="First Name" value="{{ request.session.user.fname }}">
+                        </div>
+                    </tr>
+                    <hr>
+                    <tr>
+                        <div class="input-group mb3">
+                            <span class="input-group-text" id="basic-addon2">Last Name</span>
+                            <input type="text" class="form-control" name="lname" placeholder="Last Name" value="{{ request.session.user.lname }}">
+                        </div>
+                    </tr>
+                    <hr>
+                    <tr>
+                        <div class="input-group mb3">
+                            <span class="input-group-text" id="basic-addon3">Password</span>
+                            <input type="text" class="form-control" name="passwd" placeholder="Password" value="{{ request.session.user.passwd }}">
+                        </div>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-lg btn-primary" data-bs-dismiss="modal">Update Profile</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="deletemodal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger">Delete Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Do You Really Want to Delete Your Account?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <form action="{% url 'delete_profile' request.session.user.uid %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete Account</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" id="logoutmodal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger">Logout</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Do You Really Want to Logout?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <a href="/logout"><button type="button" class="btn btn-primary">Logout</button></a>
+      </div>
+    </div>
+  </div>
+</div>
